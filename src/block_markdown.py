@@ -133,8 +133,12 @@ def ul_to_HTML(block):
     lines = block.split("\n")
     newLines = []
     for line in lines:
-        newline = line.strip("- ")
-        newLines.append(newline.strip("* "))
+        if line[0] == "-":
+            newline = line.strip("- ")
+        elif line[0] == "*":
+            newline = line.strip("* ")
+        newLines.append(newline)
+        #.strip("* ")
     # for line in newLines:
     #     resultHTML += "<li>" + line + "</li>"
     children = []
